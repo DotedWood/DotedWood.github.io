@@ -6,15 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>MySQL学习笔记——01 | DotedWood&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="description" content="MySQL学习笔记——01.基础概念及安装篇1.什么是数据库​    数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 ​    每一个数据库都是由一个或多个数据表组成。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="MySQL学习笔记——01">
 <meta property="og:url" content="http://example.com/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9401/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="DotedWood&#39;s blog">
 <meta property="og:description" content="MySQL学习笔记——01.基础概念及安装篇1.什么是数据库​    数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。 ​    每一个数据库都是由一个或多个数据表组成。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/冬凌草/AppData/Roaming/Typora/typora-user-images/image-20210728155339032.png">
@@ -38,12 +38,13 @@
 <meta property="og:image" content="c:/Users/冬凌草/AppData/Roaming/Typora/typora-user-images/image-20210728163337201.png">
 <meta property="og:image" content="c:/Users/冬凌草/AppData/Roaming/Typora/typora-user-images/image-20210728163359199.png">
 <meta property="article:published_time" content="2021-09-14T12:33:40.706Z">
-<meta property="article:modified_time" content="2021-09-14T12:56:02.708Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-09-15T12:34:40.041Z">
+<meta property="article:author" content="Doted Wood">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/冬凌草/AppData/Roaming/Typora/typora-user-images/image-20210728155339032.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="DotedWood&#39;s blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -87,7 +88,7 @@
 			<img src="/img/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-			<h1 class="header-author"><a href="/">John Doe</a></h1>
+			<h1 class="header-author"><a href="/">Doted Wood</a></h1>
 		</hgroup>
 		
 
@@ -98,7 +99,11 @@
 			
 				<li><a href="/" target="_blank">技术笔记</a></li>
 			
-				<li><a href="/categories/" target="_blank">categories</a></li>
+				<li><a href="/article/" target="_blank">分档</a></li>
+			
+				<li><a href="/categories/" target="_blank">分类</a></li>
+			
+				<li><a href="/tags/" target="_blank">标签</a></li>
 			
 			</ul>
 		</nav>
@@ -163,10 +168,14 @@
 				</a>
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Doted Wood</h1>
 			</hgroup>
 			
 			
+			
+				
+			
+				
 			
 				
 			
@@ -206,11 +215,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/">技术笔记</a></li>
+					<li style="width: 20%"><a href="/">技术笔记</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">categories</a></li>
+					<li style="width: 20%"><a href="/article/">分档</a></li>
+		        
+					<li style="width: 20%"><a href="/categories/">分类</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/">标签</a></li>
 		        
 				</ul>
 			</nav>
@@ -229,6 +242,54 @@
             <article id="post-数据库/MYSQL学习笔记——01" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL学习笔记——01
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9401/" class="archive-article-date">
+        <time datetime="2021-09-14T12:33:40.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">682字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="MySQL学习笔记——01-基础概念及安装篇"><a href="#MySQL学习笔记——01-基础概念及安装篇" class="headerlink" title="MySQL学习笔记——01.基础概念及安装篇"></a>MySQL学习笔记——01.基础概念及安装篇</h1><h2 id="1-什么是数据库"><a href="#1-什么是数据库" class="headerlink" title="1.什么是数据库"></a>1.什么是数据库</h2><p>​    数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。</p>
@@ -324,11 +385,11 @@
       <ul class="post-copyright">
         <li>
           <strong>本文作者：</strong>
-          John Doe
+          Doted Wood
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2021/09/14/数据库/MYSQL学习笔记——01/" title="" target="_blank">http://example.com/2021/09/14/数据库/MYSQL学习笔记——01/</a>
+          <a href="http://example.com/2021/09/14/数据库/MYSQL学习笔记——01/" title="MySQL学习笔记——01" target="_blank">http://example.com/2021/09/14/数据库/MYSQL学习笔记——01/</a>
         </li>
         
         <li>
@@ -345,7 +406,29 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -414,14 +497,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          MySQL学习笔记——02
         
       </div>
     </a>
   
   
     <a href="/2021/09/14/XTU%20oj/XTU%20oj%201342%20%E4%B8%89%E8%A7%92%E5%BD%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">XTU oj 1342 三角形</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,7 +547,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 <a href="http://example.com/" target="_blank">John Doe</a>
+    		&copy; 2021 <a href="http://example.com/" target="_blank">Doted Wood</a>
     	</div>
       	<div class="footer-right">
 			
@@ -581,6 +664,14 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
