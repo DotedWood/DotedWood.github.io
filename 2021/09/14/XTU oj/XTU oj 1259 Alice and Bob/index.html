@@ -18,7 +18,7 @@
 <meta property="og:description" content="XTU oj 1259 Alice and BobAlice and Bob 题目描述Alice喜欢n位数，Bob喜欢能被m整除的数，请问被Alice和Bob都喜欢的数有多少个？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-14T12:33:40.667Z">
-<meta property="article:modified_time" content="2021-09-15T15:19:11.232Z">
+<meta property="article:modified_time" content="2021-09-16T12:10:05.630Z">
 <meta property="article:author" content="Doted Wood">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
@@ -78,11 +78,7 @@
 			
 				<li><a href="/" target="_blank">技术笔记</a></li>
 			
-				<li><a href="/article/" target="_blank">分档</a></li>
-			
-				<li><a href="/categories/" target="_blank">分类</a></li>
-			
-				<li><a href="/tags/" target="_blank">标签</a></li>
+				<li><a href="/archives/" target="_blank">分档</a></li>
 			
 			</ul>
 		</nav>
@@ -105,22 +101,7 @@
 			<div class="social">
 				
 					
-						<a class="github" href="#" 
-												title="GitHub" target="_blank"><i class="icon-github"></i></a>
-					
-				
-					
-						<a class="github" href="#" 
-												title="GitHub" target="_blank"><i class="icon-github"></i></a>
-					
-				
-					
-						<a class="gitee" href="#" 
-												title="gitee" target="_blank"><i class="icon-gitee"></i></a>
-					
-				
-					
-						<a class="jianshu" href="#" 
+						<a class="jianshu" href="https://blog.csdn.net/Arkhangelsk_?spm=1000.2115.3001.5343" 
 												title="jianshu" target="_blank"><i class="icon-jianshu"></i></a>
 					
 				
@@ -158,33 +139,14 @@
 			
 				
 			
-				
-			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
 						
-						<a class="github" target="_blank" 
-							href="#" title="GitHub"><i class="icon-github"></i></a>
-						
-					
-						
-						<a class="github" target="_blank" 
-							href="#" title="GitHub"><i class="icon-github"></i></a>
-						
-					
-						
-						<a class="gitee" target="_blank" 
-							href="#" title="gitee"><i class="icon-gitee"></i></a>
-						
-					
-						
 						<a class="jianshu" target="_blank" 
-							href="#" title="jianshu"><i class="icon-jianshu"></i></a>
+							href="https://blog.csdn.net/Arkhangelsk_?spm=1000.2115.3001.5343" title="jianshu"><i class="icon-jianshu"></i></a>
 						
 					
 				</div>
@@ -194,15 +156,11 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 20%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/">技术笔记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">技术笔记</a></li>
 		        
-					<li style="width: 20%"><a href="/article/">分档</a></li>
-		        
-					<li style="width: 20%"><a href="/categories/">分类</a></li>
-		        
-					<li style="width: 20%"><a href="/tags/">标签</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/">分档</a></li>
 		        
 				</ul>
 			</nav>
@@ -251,7 +209,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">458字</span>
+      <span class="post-count">443字</span>
     </span>
   </span>
 
@@ -295,7 +253,6 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">__int64 <span class="title">s</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	__int64 u = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++)</span><br><span class="line">		u *= <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> u;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(N --)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">		__int64 t1, t2;</span><br><span class="line">		t1 = s(n<span class="number">-1</span>)<span class="number">-1</span>;</span><br><span class="line">		t2 = s(n)<span class="number">-1</span>;</span><br><span class="line">		__int64 nn = t2/m-t1/m;</span><br><span class="line">		<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot;%I64d\n&quot;</span>,t2/m+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%I64d\n&quot;</span>, nn);</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>XTU oj 持续更新中…….</p>
-<p>各位老爷关注 打赏 三连一波再走啊！</p>
 
     
 
@@ -535,7 +492,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true,
+		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -675,52 +632,12 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://zhousiwei.gitee.io/ibooks/" target="_blank" 
-                class="search-title" title="记录工作和学习过程中的笔记：Java、前端开发、Hexo博客、聚合支付、Linux笔记、ElasticSearch、ELK日志分析">
-                
-                  <img src="https://zhousiwei.gitee.io/ibooks/favicon.ico">
-                
-                技术笔记
-              </a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://github.com/JoeyBling" target="_blank" 
+              <a href="https://theshineyue.github.io/" target="_blank" 
                 class="search-title" >
                 
-                  <i class="icon-link icon"></i>
+                  <img src="https://cdn.jsdelivr.net/gh/TheShineyue/cdn@1.3/images/%E4%BA%8C%E6%AC%A13.jpg">
                 
-                GitHub
-              </a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://gitee.com/zhousiwei" target="_blank" 
-                class="search-title" >
-                
-                  <i class="icon-link icon"></i>
-                
-                码云
-              </a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://www.jianshu.com/u/02cbf31a043a" target="_blank" 
-                class="search-title" >
-                
-                  <i class="icon-link icon"></i>
-                
-                简书
-              </a>
-            </li>
-          
-            <li class="search-li">
-              <a href="https://blog.csdn.net/qq_30930805" target="_blank" 
-                class="search-title" >
-                
-                  <i class="icon-link icon"></i>
-                
-                CSDN
+                李越
               </a>
             </li>
           
