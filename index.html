@@ -180,6 +180,144 @@
             
 
   
+    <article id="post-ML/机器学习——01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/10/02/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%9401/">机器学习——01</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/10/02/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%9401/" class="archive-article-date">
+        <time datetime="2021-10-01T16:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="机器学习笔记——01-定义和部分概念"><a href="#机器学习笔记——01-定义和部分概念" class="headerlink" title="机器学习笔记——01.定义和部分概念"></a>机器学习笔记——01.定义和部分概念</h1><h2 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h2><p>​    众所周知我们人类的学习能力在自然界中是顶端的存在<del>（要不然也不可能占用这么多自然资源）</del>，对于计算机来说更是如此。当然计算机有它的有点，比如，算的比人快比人准、储存数据大……但计算机本身的学习能力可以说是0，为了利用好计算机的优点，让计算机有学习能力<del>（让人少干点活，归结到底就是人懒）</del>慢慢的聪明的人们就搞出了能让计算机自己学习的算法，叫做“机器学习”。</p>
+<p>​    我们人类学习的过程可以说是一种“经验学习”的过程，也就是说，我们根据自己已有的经历，总结出一些规律或者经验，在面对差不多的问题时能够给出答案。根据人类学习的过程，我们为计算机构想出了适合它的学习过程：根据已有的“数据”和“结果”我们让计算机总结出一个“模型”，根据这个模型，在新的数据出现时，能给出答案。这些“数据和结果”就是我们人类的“经验”，“模型”就是人类的判断“准则”和“规律”。</p>
+<h2 id="机器学习的算法分类？"><a href="#机器学习的算法分类？" class="headerlink" title="机器学习的算法分类？"></a>机器学习的算法分类？</h2><ol>
+<li><h3 id="按学习的过程分类"><a href="#按学习的过程分类" class="headerlink" title="按学习的过程分类"></a>按学习的过程分类</h3><ol>
+<li><h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p>训练的数据都有明确的标记</p>
+</li>
+<li><h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><p>训练的数据没有明确的标记</p>
+</li>
+<li><h4 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h4><p>对少量的数据进行标记，然后利用这些少量数据对大部分数据进行标注。</p>
+</li>
+</ol>
+</li>
+<li><h3 id="按完成的任务分类"><a href="#按完成的任务分类" class="headerlink" title="按完成的任务分类"></a>按完成的任务分类</h3><ol>
+<li><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>给大量数据划分，将数据分成不同的簇，并对每个簇进行标号。划分的依据是某种关系进行。聚类是属于一种无监督学习。</p>
+</li>
+<li><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>对某个事务判定为预设多个类别中的一个。属于有监督学习，数据的标签是预设好的，分类模型有很多，比如二分类、多分类。举个例子：是否是阴雨天，只有是和不是两种答案，两种分类，这就属于二分类。</p>
+</li>
+<li><h4 id="回归"><a href="#回归" class="headerlink" title="回归"></a>回归</h4><p>回归与前两个不同的是，前两个的值是离散的，而回归则是连续的。例如，预测明天的气温。回归是一种监督学习。</p>
+</li>
+<li><h4 id="标注"><a href="#标注" class="headerlink" title="标注"></a>标注</h4><p>用来处理有前后关联关系的序列问题。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="机器学习的基本术语"><a href="#机器学习的基本术语" class="headerlink" title="机器学习的基本术语"></a>机器学习的基本术语</h2><ul>
+<li><strong>数据集</strong>：所有记录的集合</li>
+<li><strong>样本（示例）</strong>：每一条记录</li>
+<li><strong>特征/属性</strong>：反映事件或对象在某方面的表现或性质的事项</li>
+<li><strong>属性空间/样本空间/输入空间/特征向量</strong>：所有属性张成的空间（比如：对于西瓜，颜色、大小、花纹是它的属性，而这三个属性放一起，分别对应x,y,z三个轴，就变成了空间）</li>
+<li><strong>训练</strong>：计算机学习出模型的过程</li>
+<li><strong>训练数据</strong>：训练过程种需要的数据</li>
+<li><strong>训练集</strong>：训练数据的集合</li>
+</ul>
+<h2 id="归纳与演绎"><a href="#归纳与演绎" class="headerlink" title="归纳与演绎"></a>归纳与演绎</h2><ul>
+<li><strong>归纳</strong>：是从特殊到一般的“泛化”过程，即从具体的事件中推出一般的规律。从样例中学习</li>
+<li><strong>演绎</strong>：是从一般到特殊的“特化”过程，即从基础原理推演出具体状况。</li>
+</ul>
+<h2 id="假设空间与版本空间"><a href="#假设空间与版本空间" class="headerlink" title="假设空间与版本空间"></a>假设空间与版本空间</h2><ul>
+<li><strong>假设空间</strong>：一个问题所有可能性组成的集合</li>
+<li><strong>版本空间</strong>：和训练集中样本相等的假设空间的子集</li>
+</ul>
+<h2 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h2><p>​    对于同一个问题，计算机学习出来的模型可能有很多种，但总要选出一种来，这我们就要设置我们的归纳偏好。这一步很重要。同时，如何设置我们的归纳偏好也相当“有意思”</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/10/02/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%9401/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-XTU oj/XTU-oj-作业1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1076,141 +1214,9 @@
 
 
   
-    <article id="post-XTU oj/XTU oj 1342 三角形" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/09/14/XTU%20oj/XTU%20oj%201342%20%E4%B8%89%E8%A7%92%E5%BD%A2/">XTU oj 1342 三角形</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/09/14/XTU%20oj/XTU%20oj%201342%20%E4%B8%89%E8%A7%92%E5%BD%A2/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.681Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-1342-三角形"><a href="#XTU-oj-1342-三角形" class="headerlink" title="XTU oj 1342 三角形"></a>XTU oj 1342 <strong>三角形</strong></h1><table>
-<thead>
-<tr>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>三角形题目描述已知两个三角形的三条边的长度，请问它们是否相似？输入第一行是一个整数T(1≤T≤1000)，表示样例的个数。 每个样例占两行，每行为三个整数a,b,c1≤a,b,c≤1000,表示一个三角形的边长。 输入数据保证三条边一定能构成三角形。输出依次输出每个样例的结果，如果相似，输出”Yes”，否则输出”No”。样例输入<code>2 3 4 5 3 3 3 3 4 5 6 8 10 </code>样例输出<code>No Yes </code></td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>Sample Input</td>
-</tr>
-<tr>
-<td>``</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>Sample Output</td>
-</tr>
-<tr>
-<td>``</td>
-</tr>
-<tr>
-<td></td>
-</tr>
-<tr>
-<td>Source</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2021/09/14/XTU%20oj/XTU%20oj%201342%20%E4%B8%89%E8%A7%92%E5%BD%A2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/09/14/XTU%20oj/XTU%20oj%201342%20%E4%B8%89%E8%A7%92%E5%BD%A2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
