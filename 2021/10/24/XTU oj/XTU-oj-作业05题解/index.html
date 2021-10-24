@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="XTU-oj-作业05恭喜各位马上就能解锁较高难度oj题（手动狗头） 怀着紧张刺激的心情，我们开始本周的题解 A 平方数这道题的解题思路比较简单，模拟一下寻找的过程就好，比如说集合A&#x3D;{2，3，4}，则只有4&#x3D;2*2，也就是我们需要一个一个元素的试，从第一个元素‘2’开始，2×2 与 2 相比，然后2×2与3相比、2×2与4相比，找出相等的数量；然后第二个元素3… 代码注释里面有注意事项 1234">
+  <meta name="description" content="XTU-oj-作业05恭喜各位马上就能解锁较高难度oj题（手动狗头） 怀着紧张刺激的心情，我们开始本周的题解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XTU oj 作业05题解">
 <meta property="og:url" content="http://example.com/2021/10/24/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A05%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="DotedWood&#39;s blog">
-<meta property="og:description" content="XTU-oj-作业05恭喜各位马上就能解锁较高难度oj题（手动狗头） 怀着紧张刺激的心情，我们开始本周的题解 A 平方数这道题的解题思路比较简单，模拟一下寻找的过程就好，比如说集合A&#x3D;{2，3，4}，则只有4&#x3D;2*2，也就是我们需要一个一个元素的试，从第一个元素‘2’开始，2×2 与 2 相比，然后2×2与3相比、2×2与4相比，找出相等的数量；然后第二个元素3… 代码注释里面有注意事项 1234">
+<meta property="og:description" content="XTU-oj-作业05恭喜各位马上就能解锁较高难度oj题（手动狗头） 怀着紧张刺激的心情，我们开始本周的题解">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-24T06:50:04.000Z">
-<meta property="article:modified_time" content="2021-10-24T09:08:51.331Z">
+<meta property="article:modified_time" content="2021-10-24T09:10:28.088Z">
 <meta property="article:author" content="Doted Wood">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
@@ -231,6 +231,8 @@
     
     <h1 id="XTU-oj-作业05"><a href="#XTU-oj-作业05" class="headerlink" title="XTU-oj-作业05"></a>XTU-oj-作业05</h1><p>恭喜各位马上就能解锁较高难度oj题（手动狗头）</p>
 <p>怀着紧张刺激的心情，我们开始本周的题解</p>
+<span id="more"></span>
+
 <h2 id="A-平方数"><a href="#A-平方数" class="headerlink" title="A 平方数"></a>A 平方数</h2><p>这道题的解题思路比较简单，模拟一下寻找的过程就好，比如说集合A={2，3，4}，则只有4=2*2，也就是我们需要一个一个元素的试，从第一个元素‘2’开始，2×2 与 2 相比，然后2×2与3相比、2×2与4相比，找出相等的数量；然后第二个元素3…</p>
 <p><strong>代码注释里面有注意事项</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">注意：平方时会溢出，所以需要定义好大小</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    __int64 a[<span class="number">1111</span>];</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n) != EOF &amp;&amp; n != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%u&quot;</span>, a+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j ++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (a[j] == a[i]*a[i])</span><br><span class="line">                    sum ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, sum);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
