@@ -309,69 +309,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="机器学习笔记——02-模型的评估与选择"><a href="#机器学习笔记——02-模型的评估与选择" class="headerlink" title="机器学习笔记——02.模型的评估与选择"></a>机器学习笔记——02.模型的评估与选择</h1><h2 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h2><ul>
-<li><strong>错误率</strong>：分类错误的样本数占样本总数的比例。m个样本中a个样本分类错误，则错误率E = a/m;</li>
-<li><strong>精度</strong>：1-错误率;</li>
-<li><strong>误差</strong>：学习器的实际预测输出与真实输出之间的差异；</li>
-<li><strong>训练误差/经验误差</strong>：再训练集上的误差</li>
-<li><strong>泛化误差</strong>：在新样本中的误差</li>
-<li><strong>过拟合</strong>：在训练集中拟合的很好，导致把一些样本的特性作为了“普遍规律”</li>
-<li><strong>欠拟合</strong>：与过拟合相反，并没有抓住普遍规律</li>
-</ul>
-<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><ol>
-<li><h3 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h3><p>在数据集中找出一部分作为训练集，另一部分作为测试集。两部分互斥。一般两部分是2:1或4:1；</p>
-</li>
-<li><h3 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h3><p>一个数据集平均分成m个互斥的子集，每次取一个子集作为测试集，剩下的作为训练集，然后进行m次训练，每次训练测试集选择不同的子集。最后的评估结果按m次的均值计算；</p>
-</li>
-<li><h3 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h3><p>随机选m次，每次选一个样本放入集合D’，将D-D’作为训练集。</p>
-</li>
-<li><h3 id="调参与最终模型"><a href="#调参与最终模型" class="headerlink" title="调参与最终模型"></a>调参与最终模型</h3><ul>
-<li><strong>调参</strong>：每个模型或算法都伴随着一些参数，而这些参数往往可能是一个范围，所以我们在这一个范围中根据一定的规律选择会更加方便快捷一点。</li>
-</ul>
-</li>
-</ol>
-<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><p>​    对学习器的泛化能力进行评估，不仅需要有效可行的实验估计方法，还需要有衡量模型泛化能力的评价标准，这就是性能度量。</p>
-<ul>
-<li><h3 id="错误率与精度"><a href="#错误率与精度" class="headerlink" title="错误率与精度"></a>错误率与精度</h3><ul>
-<li><strong>错误率</strong>：是分类错误的样本数占样本总数的比例</li>
-<li><strong>精度</strong>：分类正确的样本数占样本总数的比例</li>
-</ul>
-</li>
-<li><h3 id="查准率、查全率与F1"><a href="#查准率、查全率与F1" class="headerlink" title="查准率、查全率与F1"></a>查准率、查全率与F1</h3><p> ​    错误率和精度常用，但在某些任务中不能很好的满足需求，以搜索引擎调查为例：我们需要的用户体验结果数据是“在所有搜索推荐中有多少是用户需要的”或者“用户需要的有多少在搜索结果中”。为完成这样的结果，我们给出两个新的概念，“查准率”和“查全率”。</p>
-<p> ​    在二分类问题，我们可以根据其真实类别与学习器预测类别的组合划分为“真正例”“假反例”“假正例”“真反例”</p>
-<p> <img src="https://i.loli.net/2021/10/19/bCh6tF31aQ7qJAI.png"></p>
-<ul>
-<li><strong>查准率</strong>（P）：P = TP/(TP+FP)</li>
-<li><strong>查全率</strong>（R）：R = TP/(TP+FN)</li>
-</ul>
-<p> 查准率和查全率是两个相互矛盾的存在，查准率升高，查全率往往会下降；反之则相反。为了获得两项都不错的学习器模型，我们对预测结果的样例进行排序，排在前面的是学习器认为“最有可能”是正例的样本，后面的是“最不可能”是正例的样本。然后按此顺序逐个把样本作为正例进行预测，则每次可以计算出当前的查全率、查准率。以查准率为纵轴，以查全率为横轴得到了”P-R曲线”。</p>
-<p> <strong>如何根据P-R曲线，判断学习器的好坏呢？</strong></p>
-<p> 1.如果一个学习器的曲线能完全包住另一个学习器的曲线，则第一个比第二个好。</p>
-<p> 2.如果有交叉则可按<strong>面积大小</strong>。</p>
-<p> 3.当然也可看“<strong>平衡点</strong>”（BEP），也就是P==R时的值。</p>
-<p> 4.前三种太简化，我们会用F1度量（基于P和R的调和平均）。F1 = (2PR)/(P+R)=(2*TP)/(样例总数+TP-TN)</p>
-<p> 5.Fβ，正注重对P与R的偏好问题。Fβ = [(1+β²)×P×R]/[(β²×P)+R];β=1退化为了标准的F1，β&gt;1查全率重要，β&lt;1查准率重要。</p>
-<p> 6.宏查全率，宏查准率，宏F1。</p>
-<p> <img src="https://i.loli.net/2021/10/19/xHaOuK2SyvXqohQ.png"></p>
-</li>
-<li><h3 id="ROC与AUC"><a href="#ROC与AUC" class="headerlink" title="ROC与AUC"></a>ROC与AUC</h3><p>ROC全称：“受试者工作特征”。纵轴是“真正例率”（TPR），横轴是“假正例率”（FPR）。</p>
-<p>TPR=TP/(TP+FN)</p>
-<p>FPR=FP/(TN+FP)</p>
-<p><strong>如何根据ROC曲线，判断学习器的好坏呢？</strong></p>
-<p>面积</p>
-<p><img src="https://i.loli.net/2021/10/20/1QgM6nKvG3dWZPu.png"></p>
-<p>AUC就是ROC各部分下面的面积</p>
-<p>AUC考虑的是学习器对样本预测的排序质量，误差与其有密切的联系。</p>
-</li>
-<li><h3 id="代价敏感错误率与代价曲线"><a href="#代价敏感错误率与代价曲线" class="headerlink" title="代价敏感错误率与代价曲线"></a>代价敏感错误率与代价曲线</h3></li>
-</ul>
-<h2 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h2><ol>
-<li><h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3></li>
-<li><h3 id="交叉验证t检验"><a href="#交叉验证t检验" class="headerlink" title="交叉验证t检验"></a>交叉验证t检验</h3></li>
-<li><h3 id="McNemar检验"><a href="#McNemar检验" class="headerlink" title="McNemar检验"></a>McNemar检验</h3></li>
-<li><h3 id="Friedman检验与Nemenyi后续检验"><a href="#Friedman检验与Nemenyi后续检验" class="headerlink" title="Friedman检验与Nemenyi后续检验"></a>Friedman检验与Nemenyi后续检验</h3></li>
-</ol>
-<h2 id="偏差与方差"><a href="#偏差与方差" class="headerlink" title="偏差与方差"></a>偏差与方差</h2>
+    <h1 id="机器学习笔记——02-模型的评估与选择"><a href="#机器学习笔记——02-模型的评估与选择" class="headerlink" title="机器学习笔记——02.模型的评估与选择"></a>机器学习笔记——02.模型的评估与选择</h1>
+    
+    <a class="article-more-a" href="/2021/10/19/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%9402/#more">more >></a>
+    
     
 
     
