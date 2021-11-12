@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | DotedWood&#39;s blog</title>
+  <title>补作业6 | DotedWood&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="莫问前程">
-<meta property="og:type" content="website">
-<meta property="og:title" content="DotedWood&#39;s blog">
-<meta property="og:url" content="http://example.com/archives/2021/page/2/index.html">
+  <meta name="description" content="XTU-oj-作业06补题解作业六题解还差两题，补充一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="补作业6">
+<meta property="og:url" content="http://example.com/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/index.html">
 <meta property="og:site_name" content="DotedWood&#39;s blog">
-<meta property="og:description" content="莫问前程">
+<meta property="og:description" content="XTU-oj-作业06补题解作业六题解还差两题，补充一下。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-12T12:41:19.000Z">
+<meta property="article:modified_time" content="2021-11-12T14:19:37.670Z">
 <meta property="article:author" content="Doted Wood">
+<meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="DotedWood&#39;s blog" type="application/atom+xml">
@@ -173,350 +176,261 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-XTU oj/补作业6" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9403/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.737Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9403/">MySQL学习笔记——03</a>
-	
+    <h1 class="article-title" itemprop="name">
+      补作业6
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/" class="archive-article-date">
+        <time datetime="2021-11-12T12:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="XTU-oj-作业06补题解"><a href="#XTU-oj-作业06补题解" class="headerlink" title="XTU-oj-作业06补题解"></a>XTU-oj-作业06补题解</h1><p>作业六题解还差两题，补充一下。</p>
+<span id="more"></span>
+
+<h2 id="B-：Robb’s-Problem"><a href="#B-：Robb’s-Problem" class="headerlink" title="B ：Robb’s Problem"></a>B ：Robb’s Problem</h2><p>这道题比较有意思，一般思路：算就完了！但我们粗略的算一下，20!=2432902008176640000一共19位…更别说100甚至1000的阶乘了。</p>
+<p>所以咋办呢，这个时候我们就要考虑一下，怎么把这么大的数储存。这里就需要灵活的运用我们的数组这种顺序储存结构。也就是我们以数组中的每一个储存单元储存一部分的数字，然后以整个一行的数组代表乘完的数字，设每个存储单元存储的大小为R个数字，则每个储存单元的权重就是10×R,用Σa[i]*(10×R)^(i-1)表示结果。</p>
+<p>既然解决了数字太大没法存的问题，如何去乘，就成了新的问题。正常来说我们直接数乘数就好了，那对于这种把数字都储存在了数组里面我们如何乘呢？回想我们的乘法竖式，我们应该是用第二个数的每一位去乘以第一个数，同理我们也可以把已经储存在数组里面的数字的每一个储存单元看作一位然后去乘下一个数就好。</p>
+<p>这样成就可以了吗？当然不是！我们还要考虑进位的问题，那进位进啥呢？我们在储存结果的时候是按照R位来储存的，那么我们就把超过R位的作为进位，加到下一位相乘后的结果就好了！也就是用到了取余的运算来保证结果是R位，除以R向下取整就是进位的值。</p>
+<p>但过做到这一点恐怕还是不行！因为会超时！那我们该咋办呢？打表！用一个二位数组来搞，整个i行储存的就是i!</p>
+<p>这样的结果是储存在数组里面，我们要去m位就可以对让i = m/R，k = m%R，然后各种逻辑思路就能找到了！</p>
+<p>（敲了好久累了直接上代码）：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">为了让进位更好实现，我们让R=4，数组中每个储存单元储存4位，为了不会重复进位，如果是1位的话，可能需要进行连续多次进位，4位的话正好一次就够了。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> number[<span class="number">1011</span>][<span class="number">670</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;	<span class="comment">// 求10的x次方</span></span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(x&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        x--;</span><br><span class="line">        i=i*<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> c; <span class="comment">// 进位</span></span><br><span class="line">    number[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//初始0的阶乘是1</span></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">1</span>; <span class="comment">// 标记有多少位</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">1000</span>; i++)&#123;</span><br><span class="line">        c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cnt; j ++)&#123;</span><br><span class="line">            number[i][j] = number[i<span class="number">-1</span>][j]*i + c; <span class="comment">// 计算过程</span></span><br><span class="line">            c = number[i][j]/<span class="number">10000</span>; <span class="comment">// 进位</span></span><br><span class="line">            number[i][j] = number[i][j]%<span class="number">10000</span>; <span class="comment">// 得到四位</span></span><br><span class="line">            <span class="keyword">if</span>(j == cnt<span class="number">-1</span>&amp;&amp; c&gt;<span class="number">0</span>) cnt ++; <span class="comment">// 发现位数不够就加一位</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;N);<span class="comment">//样例个数</span></span><br><span class="line">    <span class="keyword">while</span>(N&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        N--;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);<span class="comment">//n为要阶乘的值 ，m为第几位数码</span></span><br><span class="line">        <span class="keyword">int</span> offset = (m <span class="number">-1</span>) / <span class="number">4</span>; <span class="comment">// 第几个储存单元</span></span><br><span class="line">        <span class="keyword">int</span> pos = (m <span class="number">-1</span>) % <span class="number">4</span>; <span class="comment">// 存储单元的第几位；</span></span><br><span class="line">        <span class="keyword">int</span> y=(number[n][offset]/f(pos))%<span class="number">10</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="H-字符矩阵"><a href="#H-字符矩阵" class="headerlink" title="H 字符矩阵"></a>H 字符矩阵</h2><p>这道题找规律。</p>
+<p>看代码吧！</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> chr;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;chr)&amp;&amp;chr!=<span class="string">&#x27;#&#x27;</span>)&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> a=chr<span class="number">-64</span>; <span class="comment">// 中间的位置从0开始计算</span></span><br><span class="line">        <span class="keyword">int</span> k=<span class="number">2</span>*a<span class="number">-1</span>; <span class="comment">// 最大的位置序号</span></span><br><span class="line">        <span class="keyword">char</span> A[<span class="number">55</span>][<span class="number">55</span>]; <span class="comment">// 输出矩阵</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 对第一行从第0个数进行赋值一致到第k个数。第一个循环是+1，第二个是-1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a; i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> t=<span class="string">&#x27;A&#x27;</span>+i;</span><br><span class="line">            A[<span class="number">0</span>][i]=t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> t=chr-i<span class="number">-1</span>;</span><br><span class="line">            A[<span class="number">0</span>][a+i]=t;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 对角线折叠赋值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> K=<span class="number">1</span>; K&lt;a; K++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;a; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&lt;=K) A[K][j]=A[<span class="number">0</span>][K];</span><br><span class="line">                <span class="keyword">else</span> A[K][j]=A[<span class="number">0</span>][j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;a<span class="number">-1</span>; j++)&#123;</span><br><span class="line">                A[K][a+j]=A[K][k-(a+<span class="number">1</span>+j)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 横向对折赋值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> K=a; K&lt;k; K++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;k; j++)&#123;</span><br><span class="line">                A[K][j]=A[k-(K+<span class="number">1</span>)][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 输出</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;k; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;k; j++)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,A[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Doted Wood
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/2021/11/12/XTU oj/补作业6/" title="补作业6" target="_blank">http://example.com/2021/11/12/XTU oj/补作业6/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          版权归博主所有，转载请说明来源
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
+        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9402/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.721Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/10/24/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A05%E9%A2%98%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">XTU oj 作业05题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9402/">MySQL学习笔记——02</a>
-	
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9401/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%9401/">MySQL学习笔记——01</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySQL//" class="article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/git/git%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.556Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/git/git%E8%BF%9C%E7%A8%8B%E6%8E%A8%E9%80%81/">git远程推送</a>
-	
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/git/git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.542Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/git/git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">git分支管理</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/09/14/git/git%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/09/14/git/git%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">git基本操作</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2021/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2021/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -557,8 +471,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
