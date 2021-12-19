@@ -180,6 +180,128 @@
             
 
   
+    <article id="post-XTU oj/XTU-oj-作业10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/">XTU-oj-作业10</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/" class="archive-article-date">
+        <time datetime="2021-12-19T03:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-19</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="XTU-oj-作业10"><a href="#XTU-oj-作业10" class="headerlink" title="XTU-oj-作业10"></a>XTU-oj-作业10</h1><h2 id="A-A-B-I"><a href="#A-A-B-I" class="headerlink" title="A A+B I"></a>A A+B I</h2><p>这道题直接给代码了：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d+%d=%d&quot;</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        <span class="keyword">if</span> (a + b == c)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Yes\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="B-A-B-II"><a href="#B-A-B-II" class="headerlink" title="B A+B II"></a>B A+B II</h2><p>会发现输入n会输出n行，第i行中有2*(i+1)-1个元素，其中中间那一个元素是”+”，其他的从左往右递增，从右往左递减。还要注意每行空格的个数，第一行有n-1个，之后递减。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n)&amp;&amp;n!=<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> space = n<span class="number">-1</span>;<span class="comment">// 空格个数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j &lt; space; j++)&#123; <span class="comment">// 输出空格</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            space--;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>)&#123; <span class="comment">// 第一行就是一个1</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>, num=<span class="number">2</span>*(i+<span class="number">1</span>)<span class="number">-1</span>; j &lt;= num; j++)&#123; <span class="comment">// 左侧的数据</span></span><br><span class="line">                    <span class="keyword">if</span> (j &lt; (num+<span class="number">1</span>)/<span class="number">2</span>)&#123;</span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, j);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (j == (num+<span class="number">1</span>)/<span class="number">2</span>)&#123; <span class="comment">// 中间的数据</span></span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">&quot;+&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; (num+<span class="number">1</span>)/<span class="number">2</span>)&#123; <span class="comment">// 右侧的数据</span></span><br><span class="line">                        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, num+<span class="number">1</span>-j);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-A-B-III"><a href="#C-A-B-III" class="headerlink" title="C A+B III"></a>C A+B III</h2><p>首先他会查三道，如果准确的个数m小于3则概率必定为0，如果m==n则概率为1。</p>
+<p>排除0和1，那就是在n中选三个，其中m中选三个的概率。emmm，高中数学题。这里考了个辗转相除法。必须掌握</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">yf</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">while</span>(y&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        t=x%y;</span><br><span class="line">        x=y;</span><br><span class="line">        y=t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> K;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;K);</span><br><span class="line">    <span class="keyword">while</span>(K&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        K--;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="keyword">int</span> c;</span><br><span class="line">        <span class="keyword">if</span>(m &lt; <span class="number">3</span>) <span class="built_in">printf</span>(<span class="string">&quot;0\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(m == n) <span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            n = (n*(n<span class="number">-1</span>)*(n<span class="number">-2</span>))/<span class="number">2</span>;</span><br><span class="line">            m = (m*(m<span class="number">-1</span>)*(m<span class="number">-2</span>))/<span class="number">2</span>;</span><br><span class="line">            c = yf(n,m);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d/%d\n&quot;</span>,m/c,n/c);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="D-A-B-IV"><a href="#D-A-B-IV" class="headerlink" title="D A+B IV"></a>D A+B IV</h2><p>这道题就是模拟一下移位的操作，a向左移动一位相当于a×10，a向右移动一位相当于b×10。每次移动判断一下a+b==c是否成立。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k);</span><br><span class="line">    <span class="keyword">while</span> (k--)&#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c, flag;</span><br><span class="line">        flag = <span class="number">0</span>; <span class="comment">// 判断是左移还是右移 1:左移，0:右移</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d+%d=%d&quot;</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        <span class="comment">// 判断左移</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>, exm=<span class="number">0</span>, cnt=<span class="number">0</span>; exm &lt;= c; i *= <span class="number">10</span>, cnt++)&#123;</span><br><span class="line">            exm = a*i + b; <span class="comment">// 记录移位后的数据</span></span><br><span class="line">            <span class="keyword">if</span> (exm == c)&#123; <span class="comment">// 如果成立直接输出</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, cnt);</span><br><span class="line">                flag = <span class="number">1</span>; <span class="comment">// 是左移</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">10</span>, exm=<span class="number">0</span>, cnt=<span class="number">-1</span>; exm &lt;= c; i *= <span class="number">10</span>, cnt--)&#123;</span><br><span class="line">                exm = b*i+a; <span class="comment">// 记录移位后的数据</span></span><br><span class="line">                <span class="keyword">if</span> (exm == c)&#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, cnt);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="E-A-B-V"><a href="#E-A-B-V" class="headerlink" title="E A+B V"></a>E A+B V</h2><p>思路很简单，就是把两个整数的每一位相加无进位。那就把两个数单独储存，然后一个一个的相加，排除进位。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x &gt; y) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">nm</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123; <span class="comment">// x的y次方</span></span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(y &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        c = c * x;</span><br><span class="line">        y --;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> K;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;K);</span><br><span class="line">    <span class="keyword">while</span>(K&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        </span><br><span class="line">        K--;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">char</span> B[<span class="number">11</span>]; <span class="comment">// 记录第一个数</span></span><br><span class="line">        <span class="keyword">char</span> C[<span class="number">11</span>]; <span class="comment">// 记录第二个数</span></span><br><span class="line">        <span class="keyword">int</span> b[<span class="number">11</span>]; <span class="comment">// 按int型储存第一个数</span></span><br><span class="line">        <span class="keyword">int</span> c[<span class="number">11</span>]; <span class="comment">// 按int型储存第二个数</span></span><br><span class="line">        <span class="keyword">int</span> d[<span class="number">11</span>]; <span class="comment">// 储存输出的数据</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i ++)&#123; <span class="comment">// 初始化</span></span><br><span class="line">            b[i] = <span class="number">0</span>;</span><br><span class="line">            c[i] = <span class="number">0</span>;</span><br><span class="line">            d[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,B); <span class="comment">// 按字符串储存第一个数</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,C); <span class="comment">// 按字符串储存第二个数</span></span><br><span class="line">        <span class="keyword">int</span> lenB=<span class="built_in">strlen</span>(B); <span class="comment">// 第一个数的位数</span></span><br><span class="line">        <span class="keyword">int</span> lenC=<span class="built_in">strlen</span>(C); <span class="comment">// 第二个数的位数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lenB; i ++)&#123; <span class="comment">// char型-&gt;int型</span></span><br><span class="line">            b[i] = B[lenB<span class="number">-1</span>-i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lenC; i ++)&#123; <span class="comment">// char型-&gt;int型</span></span><br><span class="line">            c[i] = C[lenC<span class="number">-1</span>-i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> len = max(lenB,lenC);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i ++)&#123; <span class="comment">// 无进位的相加</span></span><br><span class="line">            d[i] = (b[i] + c[i])%<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i ++)&#123; <span class="comment">// 将d中要输出的数据按int型输出</span></span><br><span class="line">            sum = sum + d[i]*nm(<span class="number">10</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="F-A-B-VI"><a href="#F-A-B-VI" class="headerlink" title="F A+B VI"></a>F A+B VI</h2><p>先将每一位换成相应十进制数字，如果前一位比后一位小，那就相减作为，如：IX就是10-1。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> B[<span class="number">27</span>]; <span class="comment">// 输入的数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,B)!=EOF)&#123;</span><br><span class="line">        <span class="keyword">int</span> b[<span class="number">27</span>]; <span class="comment">// 将输入的数据按10进制储存</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">27</span>; i++)&#123; <span class="comment">// 初始化</span></span><br><span class="line">            b[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="built_in">strlen</span>(B); <span class="comment">// 记录位数</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i ++)&#123; <span class="comment">// 转化成10进制</span></span><br><span class="line">            <span class="keyword">if</span>(B[i] == <span class="string">&#x27;I&#x27;</span>) b[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;V&#x27;</span>) b[i] = <span class="number">5</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;X&#x27;</span>) b[i] = <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;L&#x27;</span>) b[i] = <span class="number">50</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;C&#x27;</span>) b[i] = <span class="number">100</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;D&#x27;</span>) b[i] = <span class="number">500</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(B[i] == <span class="string">&#x27;M&#x27;</span>) b[i] = <span class="number">1000</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>; <span class="comment">// 最后要输出的数据</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len<span class="number">-1</span>; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b[i] &gt;= b[i+<span class="number">1</span>]) sum = sum + b[i]; <span class="comment">// 如果当前位的数字大于或等于下一位就直接是那个数</span></span><br><span class="line">            <span class="keyword">else</span> sum = sum - b[i]; <span class="comment">// 如果小于就减去</span></span><br><span class="line">        &#125;sum = sum + b[len<span class="number">-1</span>];<span class="comment">// 最后一位肯定加上去。</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="G-A-B-VII"><a href="#G-A-B-VII" class="headerlink" title="G A+B VII"></a>G A+B VII</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n)!=EOF)&#123;</span><br><span class="line">        <span class="keyword">int</span> M1 = <span class="number">0</span>,CM = <span class="number">0</span>,D1 = <span class="number">0</span>,CD = <span class="number">0</span>,C1 = <span class="number">0</span>,XC = <span class="number">0</span>,L1 = <span class="number">0</span>,XL = <span class="number">0</span>,X1 = <span class="number">0</span>,IX = <span class="number">0</span>,V1 = <span class="number">0</span>,IV = <span class="number">0</span>,I1 = <span class="number">0</span>;</span><br><span class="line">        M1 = n / <span class="number">1000</span>; <span class="comment">// 记录有多少个1000，也就是M的个数</span></span><br><span class="line">        CM = (n%<span class="number">1000</span>)/<span class="number">900</span>; <span class="comment">// 记录有多少个900,也就是CM的个数</span></span><br><span class="line">        n = n - M1*<span class="number">1000</span> - CM*<span class="number">900</span>; <span class="comment">// 对输入的数据进行处理</span></span><br><span class="line">        </span><br><span class="line">        D1 = n/<span class="number">500</span>; <span class="comment">// 记录有多少个500，也就是D的个数</span></span><br><span class="line">        CD = (n%<span class="number">500</span>)/<span class="number">400</span>; <span class="comment">// 记录有多少个400，也就是CD的个数</span></span><br><span class="line">        n = n - D1*<span class="number">500</span> - CD*<span class="number">400</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 按上述规律自行理解...(好多字懒得打了)</span></span><br><span class="line">        C1 = n/<span class="number">100</span>;</span><br><span class="line">        XC = (n%<span class="number">100</span>)/<span class="number">90</span>;</span><br><span class="line">        n = n - C1*<span class="number">100</span> - XC*<span class="number">90</span>;</span><br><span class="line">        </span><br><span class="line">        L1 = n/<span class="number">50</span>;</span><br><span class="line">        XL = (n%<span class="number">50</span>)/<span class="number">40</span>;</span><br><span class="line">        n = n - L1*<span class="number">50</span> - XL*<span class="number">40</span>;</span><br><span class="line">        </span><br><span class="line">        X1 = n/<span class="number">10</span>;</span><br><span class="line">        IX = (n%<span class="number">10</span>)/<span class="number">9</span>;</span><br><span class="line">        n = n - X1*<span class="number">10</span> - IX*<span class="number">9</span>;</span><br><span class="line">        </span><br><span class="line">        V1 = n/<span class="number">5</span>;</span><br><span class="line">        IV = (n%<span class="number">5</span>)/<span class="number">4</span>;</span><br><span class="line">        n = n - V1*<span class="number">5</span> - IV*<span class="number">4</span>;</span><br><span class="line">        </span><br><span class="line">        I1 = n;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 根据个数输出</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;M&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CM; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;CM&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; D1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;D&quot;</span>);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CD; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;CD&quot;</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; C1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; XC; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;XC&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;L&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; XL; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;XL&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; X1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;X&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; IX; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;IX&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; V1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;V&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; IV; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;IV&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; I1; i ++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;I&quot;</span>);</span><br><span class="line">        &#125;<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="H-A-B-VIII"><a href="#H-A-B-VIII" class="headerlink" title="H A+B VIII"></a>H A+B VIII</h2><p>看另一分题解…</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-XTU oj/XTUoj作业08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1045,105 +1167,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/09/14/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%85%A5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法/新建文本文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/09/14/%E7%AE%97%E6%B3%95/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/">关于计算进制转换的算法</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/09/14/%E7%AE%97%E6%B3%95/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/" class="archive-article-date">
-        <time datetime="2021-09-14T12:33:40.789Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-14</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="关于计算进制转换的算法"><a href="#关于计算进制转换的算法" class="headerlink" title="关于计算进制转换的算法"></a><strong>关于计算进制转换的算法</strong></h1><p>​    最近对于进制转化有了一些新的算法，代码如下：</p>
-    
-    <a class="article-more-a" href="/2021/09/14/%E7%AE%97%E6%B3%95/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/09/14/%E7%AE%97%E6%B3%95/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/">展开全文 >></a>
     </p>
     
 
