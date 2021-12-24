@@ -18,7 +18,7 @@
 <meta property="og:description" content="作业11题解">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-12-24T13:43:31.000Z">
-<meta property="article:modified_time" content="2021-12-24T13:45:16.175Z">
+<meta property="article:modified_time" content="2021-12-24T13:48:29.853Z">
 <meta property="article:author" content="Doted Wood">
 <meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5字</span>
+      <span class="post-count">83字</span>
     </span>
   </span>
 
@@ -230,6 +230,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="作业11题解"><a href="#作业11题解" class="headerlink" title="作业11题解"></a>作业11题解</h1><span id="more"></span>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> K;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;K);</span><br><span class="line">    <span class="keyword">while</span>(K&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        K--;</span><br><span class="line">        <span class="keyword">int</span> n; <span class="comment">// 加工的数量</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">100</span>)&#123; <span class="comment">// 分两种情况</span></span><br><span class="line">            <span class="keyword">int</span> i=<span class="number">100</span>-n;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="number">200</span><span class="number">-3</span>*i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i=n<span class="number">-100</span>;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="number">200</span>+<span class="number">2</span>*i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     
