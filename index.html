@@ -209,69 +209,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="tensorflow学习笔记01"><a href="#tensorflow学习笔记01" class="headerlink" title="tensorflow学习笔记01"></a>tensorflow学习笔记01</h1><h2 id="模型的建立与编译训练测试"><a href="#模型的建立与编译训练测试" class="headerlink" title="模型的建立与编译训练测试"></a>模型的建立与编译训练测试</h2><h3 id="Sequential模型"><a href="#Sequential模型" class="headerlink" title="Sequential模型"></a>Sequential模型</h3><p><strong>调用</strong>：<code>tf.keras.Sequential()</code></p>
-<p><strong>作用</strong>：序列模型</p>
-<p><strong>使用</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：</span></span><br><span class="line">model = tf.keras.Sequential([layer,layer])</span><br><span class="line"><span class="comment"># 方法二：</span></span><br><span class="line">model = tf.keras.Sequential()</span><br><span class="line">model.add(layer)</span><br><span class="line">model.add(layer)</span><br></pre></td></tr></table></figure>
-
-<h3 id="函数API式"><a href="#函数API式" class="headerlink" title="函数API式"></a>函数API式</h3><p>适合多输入的模型</p>
-<h3 id="Dense层"><a href="#Dense层" class="headerlink" title="Dense层"></a>Dense层</h3><p>很简单的神经网络层，只需看安排好它的<strong>激活函数</strong></p>
-<p>默认激活函数为f(x)=ax+b;</p>
-<p>tf.keras.layers.Dense(输出数据的维度, 输入数据的维度：input_shape=(1,), 激活函数：activation=’’, 名字：name=’’)</p>
-<h3 id="Flatten层"><a href="#Flatten层" class="headerlink" title="Flatten层"></a>Flatten层</h3><p>将多维变1维</p>
-<h3 id="多层感知器"><a href="#多层感知器" class="headerlink" title="多层感知器"></a>多层感知器</h3><p>具有隐藏层的神经网络</p>
-<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><p><strong>调用</strong>：<code>model.compile(optimizer=&#39;&#39;,loss=&#39;&#39;,metrics=[])</code></p>
-<p><strong>参数</strong>：</p>
-<p>optimizer：优化器（优化方法）</p>
-<p>loss：损失函数</p>
-<p>metrics：指标</p>
-<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><p><strong>调用</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">model.fit(<span class="comment"># 输入样例，</span></span><br><span class="line">    	  <span class="comment"># 输出样例，</span></span><br><span class="line">		  epochs,</span><br><span class="line">		  batch_size,</span><br><span class="line">		  validation_data=(x_val, y_val),</span><br><span class="line">		  )</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数</strong>：</p>
-<p>epochs：训练次数</p>
-<p>batch_size：数据切分成大小为batch_size的批次</p>
-<p>validation_data：测试数据</p>
-<h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><p>model.predict()</p>
-<h2 id="机器学习知识基础"><a href="#机器学习知识基础" class="headerlink" title="机器学习知识基础"></a>机器学习知识基础</h2><h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>emmmmm，挺常见的懒得说了</p>
-<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>连续的值</p>
-<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>给出‘是’或‘否’</p>
-<p>sigmoid<strong>激活函数</strong></p>
-<p><strong>损失函数</strong>：交叉熵（binary_crossentropy）</p>
-<h3 id="多回归（多分类问题）"><a href="#多回归（多分类问题）" class="headerlink" title="多回归（多分类问题）"></a>多回归（多分类问题）</h3><p>softmax<strong>激活函数</strong></p>
-<p>输出概率和为1</p>
-<h3 id="多分类损失函数"><a href="#多分类损失函数" class="headerlink" title="多分类损失函数"></a>多分类损失函数</h3><p>sparse_categorical_crossentropy：连续的编码，n个东西分别编为0~(n-1)</p>
-<p>categorical_crossentropy：读热编码</p>
-<h3 id="顺序编码转换为读热编码"><a href="#顺序编码转换为读热编码" class="headerlink" title="顺序编码转换为读热编码"></a>顺序编码转换为读热编码</h3><p>tf.keras.utils.to_categorical()</p>
-<h3 id="学习速率"><a href="#学习速率" class="headerlink" title="学习速率"></a>学习速率</h3><p>就是找下一个参数的步长</p>
-<h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>选择下一个参数的办法，常见的有最小二乘法</p>
-<h3 id="网络容量"><a href="#网络容量" class="headerlink" title="网络容量"></a>网络容量</h3><p>与网络中的可训练参数成正比</p>
-<p>网路容量越大训练速度、难度越大；越容易产生过拟合。</p>
-<h3 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h3><p>搭建神经网络的过程中需要我们自己选择的参数</p>
-<h2 id="模型优化"><a href="#模型优化" class="headerlink" title="模型优化"></a>模型优化</h2><h3 id="提高拟合能力"><a href="#提高拟合能力" class="headerlink" title="提高拟合能力"></a>提高拟合能力</h3><p>提高网络容量，</p>
-<p>如果单纯增加神经元的个数效果不是很好</p>
-<p>提高层可大大提高网络的拟合能力</p>
-<h3 id="抑制过拟合"><a href="#抑制过拟合" class="headerlink" title="抑制过拟合"></a>抑制过拟合</h3><p>Dropout：减少神经元的共性关系</p>
-<h3 id="参数选择原则"><a href="#参数选择原则" class="headerlink" title="参数选择原则"></a>参数选择原则</h3><p>首先开发一个过拟合的模型：</p>
-<ol>
-<li>添加更多的层</li>
-<li>让每一层变得更大</li>
-<li>训练更多的轮次</li>
-</ol>
-<p>然后抑制过拟合：</p>
-<ol>
-<li>dropout</li>
-<li>正则化</li>
-<li>图像增强</li>
-<li>增加训练数据（最好的办法）</li>
-</ol>
-<p>再次，调节超参数：</p>
-<ul>
-<li>学习速率</li>
-<li>隐藏层单元数</li>
-<li>训练轮次</li>
-</ul>
-
+    <h1 id="tensorflow学习笔记01"><a href="#tensorflow学习笔记01" class="headerlink" title="tensorflow学习笔记01"></a>tensorflow学习笔记01</h1><p>有错误还请各位指正！</p>
+    
+    <a class="article-more-a" href="/2022/01/17/tensorflow/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/#more">more >></a>
+    
     
 
     
