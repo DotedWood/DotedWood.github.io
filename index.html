@@ -180,6 +180,661 @@
             
 
   
+    <article id="post-tensorflow/tensorflow-2-0学习笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/17/tensorflow/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">tensorflow 2.0学习笔记1</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/17/tensorflow/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" class="archive-article-date">
+        <time datetime="2022-01-17T14:59:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="tensorflow学习笔记01"><a href="#tensorflow学习笔记01" class="headerlink" title="tensorflow学习笔记01"></a>tensorflow学习笔记01</h1><h2 id="模型的建立与编译训练测试"><a href="#模型的建立与编译训练测试" class="headerlink" title="模型的建立与编译训练测试"></a>模型的建立与编译训练测试</h2><h3 id="Sequential模型"><a href="#Sequential模型" class="headerlink" title="Sequential模型"></a>Sequential模型</h3><p><strong>调用</strong>：<code>tf.keras.Sequential()</code></p>
+<p><strong>作用</strong>：序列模型</p>
+<p><strong>使用</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一：</span></span><br><span class="line">model = tf.keras.Sequential([layer,layer])</span><br><span class="line"><span class="comment"># 方法二：</span></span><br><span class="line">model = tf.keras.Sequential()</span><br><span class="line">model.add(layer)</span><br><span class="line">model.add(layer)</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数API式"><a href="#函数API式" class="headerlink" title="函数API式"></a>函数API式</h3><p>适合多输入的模型</p>
+<h3 id="Dense层"><a href="#Dense层" class="headerlink" title="Dense层"></a>Dense层</h3><p>很简单的神经网络层，只需看安排好它的<strong>激活函数</strong></p>
+<p>默认激活函数为f(x)=ax+b;</p>
+<p>tf.keras.layers.Dense(输出数据的维度, 输入数据的维度：input_shape=(1,), 激活函数：activation=’’, 名字：name=’’)</p>
+<h3 id="Flatten层"><a href="#Flatten层" class="headerlink" title="Flatten层"></a>Flatten层</h3><p>将多维变1维</p>
+<h3 id="多层感知器"><a href="#多层感知器" class="headerlink" title="多层感知器"></a>多层感知器</h3><p>具有隐藏层的神经网络</p>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><p><strong>调用</strong>：<code>model.compile(optimizer=&#39;&#39;,loss=&#39;&#39;,metrics=[])</code></p>
+<p><strong>参数</strong>：</p>
+<p>optimizer：优化器（优化方法）</p>
+<p>loss：损失函数</p>
+<p>metrics：指标</p>
+<h3 id="训练过程"><a href="#训练过程" class="headerlink" title="训练过程"></a>训练过程</h3><p><strong>调用</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">model.fit(<span class="comment"># 输入样例，</span></span><br><span class="line">    	  <span class="comment"># 输出样例，</span></span><br><span class="line">		  epochs,</span><br><span class="line">		  batch_size,</span><br><span class="line">		  validation_data=(x_val, y_val),</span><br><span class="line">		  )</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数</strong>：</p>
+<p>epochs：训练次数</p>
+<p>batch_size：数据切分成大小为batch_size的批次</p>
+<p>validation_data：测试数据</p>
+<h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><p>model.predict()</p>
+<h2 id="机器学习知识基础"><a href="#机器学习知识基础" class="headerlink" title="机器学习知识基础"></a>机器学习知识基础</h2><h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>emmmmm，挺常见的懒得说了</p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><p>连续的值</p>
+<h3 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h3><p>给出‘是’或‘否’</p>
+<p>sigmoid<strong>激活函数</strong></p>
+<p><strong>损失函数</strong>：交叉熵（binary_crossentropy）</p>
+<h3 id="多回归（多分类问题）"><a href="#多回归（多分类问题）" class="headerlink" title="多回归（多分类问题）"></a>多回归（多分类问题）</h3><p>softmax<strong>激活函数</strong></p>
+<p>输出概率和为1</p>
+<h3 id="多分类损失函数"><a href="#多分类损失函数" class="headerlink" title="多分类损失函数"></a>多分类损失函数</h3><p>sparse_categorical_crossentropy：连续的编码，n个东西分别编为0~(n-1)</p>
+<p>categorical_crossentropy：读热编码</p>
+<h3 id="顺序编码转换为读热编码"><a href="#顺序编码转换为读热编码" class="headerlink" title="顺序编码转换为读热编码"></a>顺序编码转换为读热编码</h3><p>tf.keras.utils.to_categorical()</p>
+<h3 id="学习速率"><a href="#学习速率" class="headerlink" title="学习速率"></a>学习速率</h3><p>就是找下一个参数的步长</p>
+<h3 id="优化器"><a href="#优化器" class="headerlink" title="优化器"></a>优化器</h3><p>选择下一个参数的办法，常见的有最小二乘法</p>
+<h3 id="网络容量"><a href="#网络容量" class="headerlink" title="网络容量"></a>网络容量</h3><p>与网络中的可训练参数成正比</p>
+<p>网路容量越大训练速度、难度越大；越容易产生过拟合。</p>
+<h3 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h3><p>搭建神经网络的过程中需要我们自己选择的参数</p>
+<h2 id="模型优化"><a href="#模型优化" class="headerlink" title="模型优化"></a>模型优化</h2><h3 id="提高拟合能力"><a href="#提高拟合能力" class="headerlink" title="提高拟合能力"></a>提高拟合能力</h3><p>提高网络容量，</p>
+<p>如果单纯增加神经元的个数效果不是很好</p>
+<p>提高层可大大提高网络的拟合能力</p>
+<h3 id="抑制过拟合"><a href="#抑制过拟合" class="headerlink" title="抑制过拟合"></a>抑制过拟合</h3><p>Dropout：减少神经元的共性关系</p>
+<h3 id="参数选择原则"><a href="#参数选择原则" class="headerlink" title="参数选择原则"></a>参数选择原则</h3><p>首先开发一个过拟合的模型：</p>
+<ol>
+<li>添加更多的层</li>
+<li>让每一层变得更大</li>
+<li>训练更多的轮次</li>
+</ol>
+<p>然后抑制过拟合：</p>
+<ol>
+<li>dropout</li>
+<li>正则化</li>
+<li>图像增强</li>
+<li>增加训练数据（最好的办法）</li>
+</ol>
+<p>再次，调节超参数：</p>
+<ul>
+<li>学习速率</li>
+<li>隐藏层单元数</li>
+<li>训练轮次</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/17/tensorflow/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-tensorflow-2-0学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/17/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">tensorflow 2.0学习笔记</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/17/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <time datetime="2022-01-17T14:59:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/17/tensorflow-2-0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据结构/数据结构树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91/">数据结构树</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91/" class="archive-article-date">
+        <time datetime="2022-01-12T12:46:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A0%91/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据结构/数据结构队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%98%9F%E5%88%97/">数据结构队列</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%98%9F%E5%88%97/" class="archive-article-date">
+        <time datetime="2022-01-12T11:38:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><p>先入先出</p>
+<h2 id="顺序实现"><a href="#顺序实现" class="headerlink" title="顺序实现"></a>顺序实现</h2><p>队列头在下标小的位置，队列尾放在数组下标大的位置，并用两个变量Front和Rear分别表示队头和队尾。</p>
+<p>先初始化为-1.</p>
+<p>来一个元素Rear+1，走一个元素Front+1。</p>
+<p>运用循环队列，队满条件:(Rear+1)%数组长度等于Front。队空条件:Rear等于Front。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Position;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> * <span class="title">PtrToQNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">	ElementType *Data;</span><br><span class="line">	Position Front,Rear;</span><br><span class="line">	<span class="keyword">int</span> MaxSize;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> PtrToQNode Queue;</span><br><span class="line"></span><br><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	Queue Q=(Queue)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct QNode));</span><br><span class="line"></span><br><span class="line">	Q-&gt;Data = (ElementType *)<span class="built_in">malloc</span>(MaxSize*<span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">	Q-&gt;Front = Q-&gt;Rear = <span class="number">0</span>;</span><br><span class="line">	Q-&gt;MaxSize = MaxSize;	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> Q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> ((Q-&gt;Rear+<span class="number">1</span>)%Q-&gt;MaxSize==Q-&gt;Front);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">AddQ</span><span class="params">(Queue Q, ElementType X)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsFull(Q))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;队列满&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		Q-&gt;Rear = (Q-&gt;Rear+<span class="number">1</span>)%Q-&gt;MaxSize;</span><br><span class="line">		Q-&gt;Data[Q-&gt;Rear]=X;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (Q-&gt;Front==Q-&gt;Rear);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(IsEmpty)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;队列空&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ElementType X;</span><br><span class="line"></span><br><span class="line">	Q-&gt;Front=(Q-&gt;Front+<span class="number">1</span>)%Q-&gt;MaxSize;</span><br><span class="line">	X=Q-&gt;Data[Q-&gt;Front]</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> X;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链式实现"><a href="#链式实现" class="headerlink" title="链式实现"></a>链式实现</h2><p>链表尾部插入，头部删除</p>
+<p>Front指向链表的头部，Rear指向链表的尾部</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%98%9F%E5%88%97/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据结构/数据结构堆栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A0%86%E6%A0%88/">数据结构堆栈</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A0%86%E6%A0%88/" class="archive-article-date">
+        <time datetime="2022-01-12T08:22:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="数据结构——堆栈"><a href="#数据结构——堆栈" class="headerlink" title="数据结构——堆栈"></a>数据结构——堆栈</h1><p>后入先出</p>
+<h2 id="顺序存储实现"><a href="#顺序存储实现" class="headerlink" title="顺序存储实现"></a>顺序存储实现</h2><p>Top指向带有数据的栈顶</p>
+<p>代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Position;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> * <span class="title">PtrToSNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">	ElementType * Data;</span><br><span class="line">	Position Top;<span class="comment">// 指向栈顶，有元素</span></span><br><span class="line">	<span class="keyword">int</span> MaxSize;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> PtrToSNode Stack;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建空栈</span></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>&#123;</span><br><span class="line">	Stack S=(Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">	S-&gt;Data = (ElementType *)<span class="built_in">malloc</span>(MaxSize*<span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">	S-&gt;Top=<span class="number">-1</span>;</span><br><span class="line">	S-&gt;MaxSize=MaxSize;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否满了</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (S-&gt;Top == MaxSize<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 入栈</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Push</span><span class="params">(Stack S, ElementType X)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsFull(S))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;已经满了&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		S-&gt;Data[++(S-&gt;Top)] = X;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否为空栈</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (S-&gt;Top==<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsEmpty)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;堆栈空&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> (S-&gt;Data[(S-&gt;Top)--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="堆栈链式实现"><a href="#堆栈链式实现" class="headerlink" title="堆栈链式实现"></a>堆栈链式实现</h2><p>在链<strong>表头</strong>进行入栈和出栈</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> * <span class="title">PtrToSNode</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	ElementType Data;</span><br><span class="line">	PtrToSNode Next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> PtrToSNode Stack;</span><br><span class="line"></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Stack S;</span><br><span class="line"></span><br><span class="line">	S=<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">	S-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> S-&gt;Next==<span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Push</span><span class="params">(Stack S, ElementType X)</span></span>&#123;</span><br><span class="line">	Stack tmp;</span><br><span class="line"></span><br><span class="line">	tmp = (Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">	tmp-&gt;Data = X;</span><br><span class="line">	tmp-&gt;Next = S-&gt;Next;</span><br><span class="line">	S-&gt;Next = tmp;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">	Stack tmp;</span><br><span class="line">	ElementType X;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(IsEmpty(S))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;堆栈空&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tmp = S-&gt;Next;</span><br><span class="line">		X=tmp-&gt;Data;</span><br><span class="line">		S-&gt;Next = tmp-&gt;Next;</span><br><span class="line">		<span class="built_in">free</span>(tmp);</span><br><span class="line">		<span class="keyword">return</span> X;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="堆栈实现中缀表达式变后缀"><a href="#堆栈实现中缀表达式变后缀" class="headerlink" title="堆栈实现中缀表达式变后缀"></a>堆栈实现中缀表达式变后缀</h2><ol>
+<li>遇到运算符直接输出；</li>
+<li>遇到左括号入栈；</li>
+<li>遇到右括号将栈顶的运算符输出直至栈顶为左括号；</li>
+<li>遇到运算符，如果此运算符大于栈顶运算符，则入栈；如果此运算符优先级小于或等于栈顶运算符，则出栈，再与栈顶相比，直至遇到大的。</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A0%86%E6%A0%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据结构/数据结构线性表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BA%BF%E6%80%A7%E8%A1%A8/">数据结构</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
+        <time datetime="2022-01-12T05:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="第三章-线性表的定义与实现"><a href="#第三章-线性表的定义与实现" class="headerlink" title="第三章 线性表的定义与实现"></a>第三章 线性表的定义与实现</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由同一类型的数据元素构成的有序序列的线性结构。</p>
+<p>线性表中元素个数是线性表的长度。</p>
+<h2 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h2><p>指在内存中用地址连续的一块存储空间顺序存放线性表的各元素</p>
+<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List <span class="title">MakeEmpty</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	List L;</span><br><span class="line">	L=(List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">	L-&gt;Last=<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>与X在表中的位置有关，也与表长有关。平均查找长度(n+1)/2。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Position <span class="title">Find</span><span class="params">(List L, ElementType X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Position i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= L-&gt;Last &amp;&amp; L-&gt;Data[i] != X)&#123;</span><br><span class="line">		i ++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i &gt; L-&gt;Last) <span class="keyword">return</span> ERROR;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><p>将数据插入到第i个位置上(1&lt;=i&lt;=n+1)</p>
+<ol>
+<li>检查是不是满了</li>
+<li>插入位序的合法性</li>
+<li>数据移动的次序和方向：<strong>平均移动次数</strong>n/2</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*插入的位置i是1&lt;=i&lt;=n+1*/</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">(List L, ElementType X, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	Position j;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(L-&gt;Last == MAXSIZE<span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;装满&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">1</span> || i &gt; L-&gt;Last+<span class="number">2</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;位置不合法&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(j = L-&gt;Last; j &gt;= i<span class="number">-1</span>; j--)&#123;</span><br><span class="line">		L-&gt;Data[j+<span class="number">1</span>] = L-&gt;Data[j];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	L-&gt;Data[i<span class="number">-1</span>]=X;</span><br><span class="line">	L-&gt;Last++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>平均移动次数(n-1)/2</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Delete</span><span class="params">(List L, <span class="keyword">int</span> i)</span></span>&#123; </span><br><span class="line">	Position j;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(i &lt; <span class="number">1</span> || i &gt; L-&gt;Last+<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;位序%d不存在元素&quot;</span>,i);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(j = i; j &lt;= L-&gt;Last; j ++)&#123;</span><br><span class="line">		L-&gt;Data[j<span class="number">-1</span>] = L-&gt;Data[j];</span><br><span class="line">	&#125;</span><br><span class="line">	L-&gt;Last--;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h2><p>顺序表的存储特点是物理上的相邻实现了逻辑上的相邻。</p>
+<h3 id="求表长"><a href="#求表长" class="headerlink" title="求表长"></a>求表长</h3><p>需要将线性表从头到尾遍历一遍</p>
+<h3 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h3><h3 id="插入-1"><a href="#插入-1" class="headerlink" title="插入"></a>插入</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">(List L, ELementType X, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	Position tmp, pre;</span><br><span class="line">	<span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	pre = L;</span><br><span class="line">	<span class="keyword">while</span>(pre &amp;&amp; cnt &lt; i<span class="number">-1</span>)&#123;</span><br><span class="line">		pre = pre-&gt;Next;</span><br><span class="line">		cnt ++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(pre==<span class="literal">NULL</span> || cnt != i<span class="number">-1</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;插入位置参数错误！&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tmp=(Position)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">		tmp-&gt;Data=X;</span><br><span class="line">		tmp-&gt;Next=pre-&gt;Next;</span><br><span class="line">		pre-&gt;Next=tmp;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Delete</span><span class="params">(List L, <span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	Position tmp, pre;</span><br><span class="line">	<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	pre = L;</span><br><span class="line">	<span class="keyword">while</span>(pre &amp;&amp; cnt &lt; i<span class="number">-1</span>)&#123;</span><br><span class="line">		pre=pre-&gt;Next;</span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(pre==<span class="literal">NULL</span> || cnt != i<span class="number">-1</span> || pre-&gt;Next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;删除位置参数错误&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tmp=pre-&gt;Next;</span><br><span class="line">		pre-&gt;Next=tmp-&gt;Next;</span><br><span class="line">		<span class="built_in">free</span>(tmp);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="广义表与多重链表"><a href="#广义表与多重链表" class="headerlink" title="广义表与多重链表"></a>广义表与多重链表</h2>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/01/12/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BA%BF%E6%80%A7%E8%A1%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-XTU oj/XTU-OJ-作业13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -576,592 +1231,9 @@
 
 
   
-    <article id="post-复习/大一上期末复习参考意见" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/12/23/%E5%A4%8D%E4%B9%A0/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E5%8F%82%E8%80%83%E6%84%8F%E8%A7%81/">大一上期末复习参考意见</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/12/23/%E5%A4%8D%E4%B9%A0/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E5%8F%82%E8%80%83%E6%84%8F%E8%A7%81/" class="archive-article-date">
-        <time datetime="2021-12-23T13:26:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="大一上期末复习参考意见"><a href="#大一上期末复习参考意见" class="headerlink" title="大一上期末复习参考意见"></a>大一上期末复习参考意见</h1><p>不知不觉大一上学期就要过完了，马上进入复习月的你是否和我一样期盼着放寒假呢！但在现在的你和放寒假之间还差了个期末考试，为了让各位更好更充分地参加接下来的期末考试，我在线代、数分、大外、C语言四个学科方面给出我的一些建议。</p>
-    
-    <a class="article-more-a" href="/2021/12/23/%E5%A4%8D%E4%B9%A0/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E5%8F%82%E8%80%83%E6%84%8F%E8%A7%81/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">期末复习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/12/23/%E5%A4%8D%E4%B9%A0/%E5%A4%A7%E4%B8%80%E4%B8%8A%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E5%8F%82%E8%80%83%E6%84%8F%E8%A7%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XTU oj/XTU-oj-作业12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/12/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A12/">XTU oj 作业12</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/12/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A12/" class="archive-article-date">
-        <time datetime="2021-12-23T02:13:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-作业12-2015年期末"><a href="#XTU-oj-作业12-2015年期末" class="headerlink" title="XTU-oj-作业12-2015年期末"></a>XTU-oj-作业12-2015年期末</h1><p>这套题命名很有意思，A题题目是A开头，B题题目是B开头…这件事告诉我们要在痛苦中找寻美（手动狗头保命）。</p>
-    
-    <a class="article-more-a" href="/2021/12/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A12/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/12/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A12/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XTU oj/XTU-oj-作业10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/">XTU-oj-作业10</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/" class="archive-article-date">
-        <time datetime="2021-12-19T03:21:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-19</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-作业10"><a href="#XTU-oj-作业10" class="headerlink" title="XTU-oj-作业10"></a>XTU-oj-作业10</h1>
-    
-    <a class="article-more-a" href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/12/19/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A10/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XTU oj/XTUoj作业08" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/12/10/XTU%20oj/XTUoj%E4%BD%9C%E4%B8%9A08/">XTUoj作业08</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/12/10/XTU%20oj/XTUoj%E4%BD%9C%E4%B8%9A08/" class="archive-article-date">
-        <time datetime="2021-12-10T15:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-作业08"><a href="#XTU-oj-作业08" class="headerlink" title="XTU-oj-作业08"></a>XTU-oj-作业08</h1>
-    
-    <a class="article-more-a" href="/2021/12/10/XTU%20oj/XTUoj%E4%BD%9C%E4%B8%9A08/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/12/10/XTU%20oj/XTUoj%E4%BD%9C%E4%B8%9A08/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XTU oj/XTU-oj-作业07" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/11/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A07/">XTU oj 作业七</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/11/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A07/" class="archive-article-date">
-        <time datetime="2021-11-23T13:54:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-作业07"><a href="#XTU-oj-作业07" class="headerlink" title="XTU-oj-作业07"></a>XTU-oj-作业07</h1><p>废话少说，上题解吧……</p>
-    
-    <a class="article-more-a" href="/2021/11/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A07/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/11/23/XTU%20oj/XTU-oj-%E4%BD%9C%E4%B8%9A07/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-XTU oj/补作业6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/">补作业6</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/" class="archive-article-date">
-        <time datetime="2021-11-12T12:41:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-12</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="XTU-oj-作业06补题解"><a href="#XTU-oj-作业06补题解" class="headerlink" title="XTU-oj-作业06补题解"></a>XTU-oj-作业06补题解</h1><p>作业六题解还差两题，补充一下。</p>
-    
-    <a class="article-more-a" href="/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/XTU-oj//" class="article-tag-list-link color2">XTU oj</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/11/12/XTU%20oj/%E8%A1%A5%E4%BD%9C%E4%B8%9A6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1173,7 +1245,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 <a href="http://example.com/" target="_blank">Doted Wood</a>
+    		&copy; 2021-2022 <a href="http://example.com/" target="_blank">Doted Wood</a>
     	</div>
       	<div class="footer-right">
 			
@@ -1301,6 +1373,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">期末复习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>
